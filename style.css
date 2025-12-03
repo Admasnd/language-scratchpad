@@ -1,0 +1,47 @@
+* {
+  /* reset margin and padding */
+  margin: 0;
+  padding: 0;
+  /* instead of just considering content for width and height calculation, we also 
+   * include padding and border.
+   * When looked at from the view of boxes within boxes, the following represents 
+   * the area from innermost to outermost: content > padding > border > margin.
+   */
+  box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* stacks child elements vertically */
+  /* have form take up entire height of screen. 
+   * relative to viewport but not relative to parent element.
+   */
+  height: 100vh;
+  /* using this instead of 100vw avoids horizontal overflow
+   * because it, unlike 100vw, excludes scrollbar in its width
+   * calculations.
+   */
+  width: 100%;
+}
+
+textarea {
+  /* `flex: 1` is shorthand for `flex-grow: 1`, `flex-shrink: 1`, and `flex-basis: 0`. 
+   * `flex-grow: 1` allows textarea to grow and take up the available vertical whitespace.
+   *  Since there are no other siblings with `flex` set, textarea gets all of the whitespace 
+   *  for itself.
+   *  `flex-shrink: 1` allows textarea to shrink if there would otherwise not be enough 
+   *  space for the reset button.
+   *  `flex-basis: 0` gives the initial size of textarea size of 0 before determining how
+   *  much it should grow or shrink. This has the effect of giving consistent sizing no matter
+   *  how much content is in the textarea because it ignores size of content for its initial
+   *  calculations.
+   */
+  flex: 1;
+  overflow: auto; /* use scrollbar for overflow */
+  width: 100%;
+  outline: none; /* outline does not impact width/height; purely visual */
+  /* TODO understand how px calculation works to give consistent results with different DPI */
+  padding: 10px; /* fixed spaced padding around text */
+  resize: none; /* prevent user from dragging on window to resize it */
+  border: none; /* border impacts width and height */
+}
