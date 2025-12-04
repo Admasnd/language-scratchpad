@@ -12,7 +12,8 @@
 
 form {
   display: flex;
-  flex-direction: column; /* stacks child elements vertically */
+  /* stacks child elements vertically and wrap flex items */
+  flex-flow: column wrap;
   /* have form take up entire height of screen. 
    * relative to viewport but not relative to parent element.
    */
@@ -38,6 +39,7 @@ textarea {
    */
   flex: 1;
   overflow: auto; /* use scrollbar for overflow */
+  overflow-wrap: break-word;
   width: 100%;
   outline: none; /* outline does not impact width/height; purely visual */
   /* TODO understand how px calculation works to give consistent results with different DPI */
