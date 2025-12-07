@@ -1,0 +1,7 @@
+{
+  "name": "language-scratchpad",
+  "short_name": "langpad",
+  "description": "An offline scratchpad for entering text for language dictionary lookups",
+  "version" : "0.8.0",
+  "manifest-version": 3
+}
