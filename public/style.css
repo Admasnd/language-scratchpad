@@ -10,6 +10,11 @@
   box-sizing: border-box;
 }
 
+body {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
 form {
   display: flex;
   /* stacks child elements vertically and wrap flex items */
@@ -23,6 +28,10 @@ form {
    * calculations.
    */
   width: 100%;
+}
+
+form > label {
+  text-align: center;
 }
 
 textarea {
