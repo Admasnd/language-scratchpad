@@ -10,6 +10,7 @@ const APP_STATIC_RESOURCES = [
     "/index.html",
     "/style.css",
     "/app.js",
+    "/manifest.json",
     // Add all your static assets here
 ];
 
@@ -55,7 +56,8 @@ self.addEventListener("fetch", (event) => {
                 const networkResponse = await fetch(event.request);
                 if (networkResponse.ok) {
                     // Cache the response for future use
-                    cache.put(event.request, networkResponse.clone());
+                    const cache = await caches.open(CACHE_NAME);
+                    await cache.put(event.request, networkResponse.clone());
                 }
                 return networkResponse;
             } catch (error) {

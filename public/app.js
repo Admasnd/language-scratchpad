@@ -12,6 +12,8 @@ window.addEventListener('load', function() {
     if (savedContent) {
         textarea.value = savedContent;
     }
+    // Register service worker if functionality is available
+    navigator?.serviceWorker.register('/sw.js');
 });
 
 // Save content to localStorage whenever user types
