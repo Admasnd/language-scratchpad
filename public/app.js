@@ -10,7 +10,7 @@ let saveTimeout;
 window.addEventListener('load', function() {
     const savedContent = localStorage.getItem(storageKey);
     if (savedContent) {
-        textarea.value = savedContent;
+        textarea.textContent = savedContent;
     }
     // Register service worker if functionality is available
     navigator?.serviceWorker.register('/sw.js');
@@ -20,7 +20,7 @@ window.addEventListener('load', function() {
 textarea.addEventListener('input', function(e) {
     clearTimeout(saveTimeout);
     saveTimeout = setTimeout(() => {
-        localStorage.setItem(storageKey, e.target.value);
+        localStorage.setItem(storageKey, e.target.textContent);
     }, 500); // Save 500ms after user stops typing
 });
 
