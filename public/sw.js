@@ -6,11 +6,10 @@ const CACHE_NAME = `langpad-${VERSION}`;
 
 // Static resources to cache
 const APP_STATIC_RESOURCES = [
-    "/",
-    "/index.html",
-    "/style.css",
-    "/app.js",
-    "/manifest.json",
+    "index.html",
+    "style.css",
+    "app.js",
+    "manifest.json",
     // Add all your static assets here
 ];
 
@@ -21,7 +20,7 @@ self.addEventListener("install", (event) => {
     event.waitUntil(
         (async () => {
             const cache = await caches.open(CACHE_NAME);
-            await cache.addAll(APP_STATIC_RESOURCES);
+            return cache.addAll(APP_STATIC_RESOURCES);
         })()
     );
 });
@@ -40,7 +39,7 @@ self.addEventListener("activate", (event) => {
                     return undefined;
                 })
             );
-            await clients.claim();
+            return clients.claim();
         })()
     );
 });
