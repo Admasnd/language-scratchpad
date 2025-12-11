@@ -57,7 +57,7 @@ form > textarea {
   border: none; /* border impacts width and height */
   font-size: 1.5rem;
 }
-+
-+form > input {
-+  height: 80px;
-+}
+
+form > input {
+  height: 80px;
+}
