@@ -1,7 +1,13 @@
 * {
+  /* border: 1px solid red !important; */
   /* reset margin and padding */
   margin: 0;
   padding: 0;
+  /* using this instead of 100vw avoids horizontal overflow
+   * because it, unlike 100vw, excludes scrollbar in its width
+   * calculations.
+   */
+  width: 100%;
   /* instead of just considering content for width and height calculation, we also 
    * include padding and border.
    * When looked at from the view of boxes within boxes, the following represents 
@@ -12,7 +18,6 @@
 
 body {
   font-size: 1.5rem;
-  line-height: 1.5;
 }
 
 form {
@@ -23,18 +28,14 @@ form {
    * relative to viewport but not relative to parent element.
    */
   height: 100vh;
-  /* using this instead of 100vw avoids horizontal overflow
-   * because it, unlike 100vw, excludes scrollbar in its width
-   * calculations.
-   */
-  width: 100%;
 }
 
 form > label {
   text-align: center;
 }
 
-textarea {
+form > textarea {
+  white-space: pre-wrap;
   /* `flex: 1` is shorthand for `flex-grow: 1`, `flex-shrink: 1`, and `flex-basis: 0`. 
    * `flex-grow: 1` allows textarea to grow and take up the available vertical whitespace.
    *  Since there are no other siblings with `flex` set, textarea gets all of the whitespace 
@@ -49,7 +50,6 @@ textarea {
   flex: 1;
   overflow: auto; /* use scrollbar for overflow */
   overflow-wrap: break-word;
-  width: 100%;
   outline: none; /* outline does not impact width/height; purely visual */
   /* TODO understand how px calculation works to give consistent results with different DPI */
   padding: 10px; /* fixed spaced padding around text */
@@ -57,3 +57,7 @@ textarea {
   border: none; /* border impacts width and height */
   font-size: 1.5rem;
 }
++
++form > input {
++  height: 80px;
++}
