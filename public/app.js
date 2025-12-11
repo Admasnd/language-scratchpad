@@ -28,7 +28,7 @@ window.addEventListener('load', function() {
         textarea.textContent = savedContent;
     }
     // Register service worker if functionality is available
-    navigator?.serviceWorker.register('/sw.js');
+    navigator?.serviceWorker.register('./sw.js');
     // add text received with hash fragment on initial load
     storeHashText();
 });
