@@ -40,7 +40,7 @@ window.addEventListener('hashchange', function() {
 
 // Save content to localStorage whenever user types
 textarea.addEventListener('input', function(e) {
-    writeTextToStorage(e.target.textContent);
+    writeTextToStorage(e.target.value);
 });
 
 // Clear localStorage when reset is clicked
