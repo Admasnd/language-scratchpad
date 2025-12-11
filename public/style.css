@@ -55,4 +55,5 @@ textarea {
   padding: 10px; /* fixed spaced padding around text */
   resize: none; /* prevent user from dragging on window to resize it */
   border: none; /* border impacts width and height */
+  font-size: 1.5rem;
 }
